@@ -10,6 +10,7 @@ This repository intentionally does not include Tidewater UI, domain behavior, or
 - Svelte 5 runes mode
 - Cloudflare adapter
 - Vite and Vitest
+- Playwright
 - ESLint and Prettier
 
 ## Getting Started
@@ -37,9 +38,11 @@ npm run dev
 - `npm run dev` starts Vite locally.
 - `npm run check` runs SvelteKit sync and type checks.
 - `npm run lint` runs ESLint.
-- `npm run test` runs Vitest.
+- `npm run test:unit` runs Vitest unit tests.
+- `npm run test:integration` runs Playwright integration tests.
+- `npm run test` runs unit and integration tests.
 - `npm run build` creates the Cloudflare-targeted production build.
-- `npm run verify` runs check, lint, tests, and build.
+- `npm run verify` runs check, lint, unit tests, integration tests, and build.
 
 ## Cloudflare
 
@@ -62,7 +65,7 @@ Completed in Session 1:
 - `.env.example` added
 - Repository README added
 - Git repository initialized
-- Check, build, and tests verified
+- Check, unit tests, integration tests, and build verified
 
 Deferred:
 
