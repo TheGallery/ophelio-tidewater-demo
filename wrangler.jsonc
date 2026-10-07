@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ophelio-tidewater-demo",
+  "main": "src/index.tsx",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+  },
+  "kv_namespaces": [
+    {
+      "binding": "VISITORS",
+      // This id belongs to the hosted Tidewater demo. To deploy your own copy,
+      // run `npx wrangler kv namespace create VISITORS` and replace it with the
+      // id it prints.
+      "id": "7f72c7b70c81409ca286c4dfb03483e8",
+    },
+  ],
+  "ratelimits": [
+    {
+      "name": "REQUEST_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 60, "period": 60 },
+    },
+    {
+      "name": "JOIN_LIMITER",
+      "namespace_id": "1002",
+      "simple": { "limit": 1, "period": 60 },
+    },
+  ],
+  "triggers": {
+    "crons": ["0 * * * *"],
+  },
+}
